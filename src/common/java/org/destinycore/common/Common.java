@@ -350,7 +350,11 @@ public final class Common {
             return 0L;
         }
         try {
-            return Long.parseUnsignedLong(str.trim());
+            String trimmed = str.trim();
+            if (trimmed.isEmpty()) {
+                return 0L;
+            }
+            return Long.parseUnsignedLong(trimmed);
         } catch (NumberFormatException e) {
             return 0L;
         }
@@ -366,7 +370,11 @@ public final class Common {
             return 0L;
         }
         try {
-            return Long.parseLong(str.trim());
+            String trimmed = str.trim();
+            if (trimmed.isEmpty()) {
+                return 0L;
+            }
+            return Long.parseLong(trimmed);
         } catch (NumberFormatException e) {
             return 0L;
         }
@@ -378,7 +386,7 @@ public final class Common {
      * @return String representation
      */
     public static String stringize(Object value) {
-        return value != null ? value.toString() : "";
+        return String.valueOf(value);
     }
 
     // ==================== AnyData Class ====================
@@ -488,7 +496,7 @@ public final class Common {
          * @param increment The amount to increment
          * @return true if counter reached max value (and was removed), false otherwise
          */
-        public boolean incrementOrProcCounter(String key, int maxVal, int increment) {
+        public synchronized boolean incrementOrProcCounter(String key, int maxVal, int increment) {
             int newValue = increment(key, increment);
             if (newValue < maxVal) {
                 return false;

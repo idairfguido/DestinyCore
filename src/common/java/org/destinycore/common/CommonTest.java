@@ -160,9 +160,16 @@ public class CommonTest {
         long value2 = Common.parseUnsignedLong("9876543210");
         System.out.println("parseUnsignedLong('9876543210') = " + value2);
         
+        // Test edge cases
+        System.out.println("parseLong('') = " + Common.parseLong(""));
+        System.out.println("parseLong('   ') = " + Common.parseLong("   "));
+        System.out.println("parseLong(null) = " + Common.parseLong(null));
+        System.out.println("parseUnsignedLong('invalid') = " + Common.parseUnsignedLong("invalid"));
+        
         // Test stringize
         String str = Common.stringize(42);
         System.out.println("stringize(42) = '" + str + "'");
+        System.out.println("stringize(null) = '" + Common.stringize(null) + "'");
         
         // Test constants
         System.out.println("M_PI = " + Common.M_PI);
