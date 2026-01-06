@@ -22,3 +22,9 @@ nbproject/*
 .vscode
 cmake-build-*/
 .vs
+
+# Java compiled files
+*.class
+*.jar
+*.war
+*.ear
