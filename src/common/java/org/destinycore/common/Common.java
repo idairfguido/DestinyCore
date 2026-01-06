@@ -18,7 +18,6 @@
 
 package org.destinycore.common;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
@@ -511,7 +510,7 @@ public final class Common {
          * @param maxVal The maximum value
          * @return true if counter reached max value (and was removed), false otherwise
          */
-        public boolean incrementOrProcCounter(String key, int maxVal) {
+        public synchronized boolean incrementOrProcCounter(String key, int maxVal) {
             return incrementOrProcCounter(key, maxVal, 1);
         }
 
