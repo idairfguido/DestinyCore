@@ -165,10 +165,10 @@ struct AreaPOILoadInfo
             { false, FT_SHORT, "ContinentID" },
             { false, FT_SHORT, "AreaID" },
             { false, FT_SHORT, "WorldStateID" },
+            { false, FT_SHORT, "PortLocID" },
             { false, FT_BYTE, "Importance" },
             { false, FT_BYTE, "Icon" },
             { true, FT_INT, "PlayerConditionID" },
-            { true, FT_INT, "PortLocID" },
             { true, FT_INT, "UiTextureAtlasMemberID" },
             { true, FT_INT, "MapFloor" },
             { true, FT_INT, "WmoGroupID" },
@@ -189,6 +189,7 @@ struct AreaPOIStateLoadInfo
             { false, FT_BYTE, "WorldStateValue" },
             { false, FT_BYTE, "IconEnumValue" },
             { true, FT_INT, "UiTextureAtlasMemberID" },
+            { true, FT_INT, "RelationshipData" },
         };
         static DB2LoadInfo const loadInfo(&fields[0], std::extent<decltype(fields)>::value, AreaPOIStateMeta::Instance(), HOTFIX_SEL_AREA_POI_STATE);
         return &loadInfo;

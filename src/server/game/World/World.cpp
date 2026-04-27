@@ -2669,6 +2669,7 @@ void World::SetInitialWorldSettings()
     uint32 startupDuration = GetMSTimeDiffToNow(startupBegin);
 
     sPlayerBotMgr->UpAllPlayerBotSession();
+    sPlayerBotMgr->SupplementOneRandomPlayerBotPerAccount();
 
     TC_LOG_INFO("server.worldserver", "World initialized in %u minutes %u seconds", (startupDuration / 60000), ((startupDuration % 60000) / 1000));
 
